@@ -131,7 +131,7 @@ class TInfo
 {
   public:
     TInfo();
-    void          init(_Mode_e mode = TINFO_MODE_HISTORIQUE); 
+    void          init(_Mode_e mode = TINFO_MODE_HISTORIQUE);
     _State_e      process (char c);
     void          attachADPS(void (*_fn_ADPS)(uint8_t phase));
     void          attachData(void (*_fn_data)(ValueList * valueslist, uint8_t state));
@@ -145,7 +145,7 @@ class TInfo
     bool          listDelete();
     void          clearStats();
     unsigned char calcChecksum(char *etiquette, char *valeur, char *horodate=NULL) ;
-    
+
     uint32_t      getChecksumErrorCount() {return checksumerror;};
     uint32_t      getFrameSizeErrorCount(){return framesizeerror;};
     uint32_t      getFrameFormatErrorCount(){return frameformaterror;};

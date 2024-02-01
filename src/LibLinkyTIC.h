@@ -7,10 +7,10 @@ namespace lktic {
 
 enum class Color
 {
-	UNKNOWN,
-	BLUE,
-	WHITE,
-	RED
+  UNKNOWN,
+  BLUE,
+  WHITE,
+  RED
 };
 
 //class Parser;
@@ -20,36 +20,38 @@ class State
 friend class Parser;
 
 public: // special functions
-	State();
+  State();
 
 public: // members functions
-	Color color() const { return _color; }
+  Color color() const { return _color; }
 
 private: // data members
-	Color _color;
+  Color _color;
 };
-	
+
 class Parser
 {
 public: // special functions
-	Parser();
-	Parser(unsigned baud);
-	Parser(unsigned baud, int serial_byte);
-	Parser(Serial& serial_to_linky);
+  Parser();
+  Parser(unsigned baud);
+  Parser(unsigned baud, SerialConfig serial_byte);
+  Parser(decltype(Serial)& serial_to_linky);
 
 public: // member functions
-	void loop();
-	State const& state() { return _state; }
+  void loop();
+  State const& state() { return _state; }
+
+public: // internal member functions
+  void parse(ValueList* data);
 
 private: // data members
-	Serial& _serial;
-	TInfo _tinfo;
-	State _state;
+  decltype(Serial)& _serial;
+  TInfo _tinfo;
+  State _state;
 
 private: // private member functions
-	void parse(ValueList* data);
-	void update(char const* name, char const* value);
-	void update_ptec(char const* value);
+  void update(char const* name, char const* value);
+  void update_ptec(char const* value);
 };
 
 } // namespace lktic
