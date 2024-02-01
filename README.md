@@ -1,2 +1,6 @@
-# arduino-linky-tarrif-color
-Read EDF's Linky datastream to extract today's color
+# LibLinkyTIC
+Parse and decode ERDF's Linky TeleInfo Client (TIC).
+
+Continuous Integration
+===
+[![.github/workflows/continuous-integration.yaml](https://github.com/yscialom/LibLinkyTIC/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/yscialom/LibLinkyTIC/actions/workflows/continuous-integration.yaml)
