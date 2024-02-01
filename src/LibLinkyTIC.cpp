@@ -1,6 +1,6 @@
 #include <cstring>
 
-#include "LibLinkyTic.h"
+#include "LibLinkyTIC.h"
 
 namespace {
 static parser* = nullptr;

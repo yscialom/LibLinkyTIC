@@ -1,7 +1,7 @@
 #ifndef LIB_LINKY_TIC_H
 #define LIB_LINKY_TIC_H
 #include <Arduino.h>
-#include <LibTeleinfo.h>
+#include "LibTeleinfo.h"
 
 namespace lktic {
 
