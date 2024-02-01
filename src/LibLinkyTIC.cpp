@@ -18,6 +18,20 @@ State::State()
 	: _color(Color::UNKNOWN)
 {}
 
+Parser::Parser()
+	: Parser(1200, SERIAL_7E1)
+{}
+
+Parser::Parser(unsigned baud)
+	: Parser(baud, SERIAL_7E1)
+{}
+
+Parser::Parser(unsigned baud, int serial_byte)
+	: Parser(Serial)
+{
+	_serial.begin(baud, serial_byte);
+}
+
 Parser::Parser(Serial& serial_to_linky)
 	: _serial(serial_to_linky),
 {

@@ -32,6 +32,9 @@ private: // data members
 class Parser
 {
 public: // special functions
+	Parser();
+	Parser(unsigned baud);
+	Parser(unsigned baud, int serial_byte);
 	Parser(Serial& serial_to_linky);
 
 public: // member functions
