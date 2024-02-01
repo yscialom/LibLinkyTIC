@@ -2,19 +2,28 @@
 
 #include "LibLinkyTic.h"
 
+namespace {
+static parser* = nullptr;
+void parse_callback(ValueList* data)
+{
+	if (parser != nullptr) {
+		parser->parse(data);
+	}
+}
+} // namespace
+
 namespace lktic {
 	
 State::State()
 	: _color(Color::UNKNOWN)
 {}
 
-static parser* = nullptr;
 Parser::Parser(Serial& serial_to_linky)
 	: _serial(serial_to_linky),
 {
 	_tinfo.init();
-	_tinfo.attachNewFrame(parse);
-	_tinfo.attachUpdatedFrame(parse);
+	_tinfo.attachNewFrame(parse_callback);
+	_tinfo.attachUpdatedFrame(parse_callback);
 	parser = this;
 }
 
@@ -58,13 +67,6 @@ void Parser::update_ptec(char const* value)
 	}
 	
 	_state._color = color;
-}
-
-void Parser::parse_callback(ValueList* data)
-{
-	if (parser != nullptr) {
-		parser.parse(data);
-	}
 }
 
 } // namespace lktic

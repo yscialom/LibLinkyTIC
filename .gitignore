@@ -1,0 +1,3 @@
+# Forbidden files as per Arduino's Library requirements
+*.exe
+*.development

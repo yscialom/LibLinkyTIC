@@ -1,0 +1,18 @@
+{
+  "name": "LibLinkyTIC",
+  "version": "0.0.1",
+  "keywords": "french, meter, power, erdf, linky, tic, teleinfo",
+  "description": "Parse and decode ERDF's Linky TeleInfo Client (TIC)",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/yscialom/LibLinkyTIC.git"
+  },
+  "authors":
+  {
+    "name": "Yankel Scialom",
+    "url": "https://github.com/yscialom"
+  },
+  "frameworks": "arduino",
+  "platforms": "*"  
+}
