@@ -31,11 +31,15 @@ private: // data members
 
 class Parser
 {
+public: // types
+  using serial_type = decltype(Serial);
+  using serial_config_type = decltype(SERIAL_8N1);
+
 public: // special functions
   Parser();
   Parser(unsigned baud);
-  Parser(unsigned baud, SerialConfig serial_byte);
-  Parser(decltype(Serial)& serial_to_linky);
+  Parser(unsigned baud, serial_config_type serial_byte);
+  Parser(serial_type& serial_to_linky);
 
 public: // member functions
   void loop();
@@ -45,7 +49,7 @@ public: // internal member functions
   void parse(ValueList* data);
 
 private: // data members
-  decltype(Serial)& _serial;
+  serial_type& _serial;
   TInfo _tinfo;
   State _state;
 

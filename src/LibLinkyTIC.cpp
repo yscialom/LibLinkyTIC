@@ -1,4 +1,4 @@
-#include <cstring>
+#include <string.h>
 
 #include "LibLinkyTIC.h"
 
@@ -19,13 +19,13 @@ Parser::Parser(unsigned baud)
   : Parser(baud, SERIAL_7E1)
 {}
 
-Parser::Parser(unsigned baud, SerialConfig serial_byte)
+Parser::Parser(unsigned baud, Parser::serial_config_type serial_byte)
   : Parser(Serial)
 {
   _serial.begin(baud, serial_byte);
 }
 
-Parser::Parser(decltype(Serial)& serial_to_linky)
+Parser::Parser(Parser::serial_type& serial_to_linky)
   : _serial(serial_to_linky)
 {
   _tinfo.init();
@@ -61,7 +61,7 @@ void Parser::update(char const* name, char const* value)
 
 void Parser::update_ptec(char const* value)
 {
-  static std::size_t constexpr color_index = 3;
+  static size_t constexpr color_index = 3;
   if (::strlen(value) < color_index+1) {
     return;
   }
