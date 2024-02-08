@@ -13,8 +13,6 @@ void setup()
   pinMode(redLedPin, OUTPUT);
 }
 
-does not compile
-
 void loop()
 {
   linky_parser.loop();
