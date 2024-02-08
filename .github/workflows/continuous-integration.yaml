@@ -7,3 +7,11 @@ jobs:
       - uses: arduino/arduino-lint-action@v1
         with:
           compliance: strict
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: arduino/compile-sketches@v1
+        with:
+          fqbn: "arduino:avr:uno"
+          enable-deltas-report: true
+          enable-warnings-report: true
